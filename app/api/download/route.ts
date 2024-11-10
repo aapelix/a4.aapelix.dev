@@ -23,7 +23,8 @@ export async function GET(request: Request) {
 
     const stream = ytdl(url, {
       format: format,
-      quality: 'highest'
+      quality: 'highest',
+      agent
     });
 
     return new Response(stream as any, {
