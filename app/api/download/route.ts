@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import ytdl from '@distube/ytdl-core';
+import * as fs from 'fs';
 
 export async function GET(request: Request) {
   try {
@@ -17,6 +18,8 @@ export async function GET(request: Request) {
       'Content-Type': 'video/mp4',
       'Transfer-Encoding': 'chunked'
     });
+
+    const agent = ytdl.createAgent(JSON.parse(fs.readFileSync("cookies.json", "utf8")));
 
     const stream = ytdl(url, {
       format: format,
