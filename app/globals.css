@@ -2,20 +2,84 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+body {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
+@layer base {
+  * {
+    @apply transition-colors duration-200;
+  }
+
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+ 
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+ 
+    --primary: 28 38% 45%; /* Adjusted to a more earthy tone */
+    --primary-foreground: 210 40% 98%;
+ 
+    --secondary: 28 38% 85%; /* More muted tone */
+    --secondary-foreground: 222.2 47.4% 11.2%;
+ 
+    --muted: 28 38% 85%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+ 
+    --accent: 28 38% 75%; /* A warmer, more neutral accent */
+    --accent-foreground: 222.2 47.4% 11.2%;
+ 
+    --border: 0 0% 80%; /* More neutral grayish tone */
+    --input: 0 0% 80%;
+    --ring: 28 38% 45%; /* Adjusted to match primary color */
+  }
+
+  .dark {
+    --background: 0 0% 8%; /* Darker background for dark theme */
+    --foreground: 28 38% 90%; /* Lighter text */
+ 
+    --card: 0 0% 12%; /* Darker card background */
+    --card-foreground: 28 38% 90%; /* Lighter card foreground */
+ 
+    --popover: 0 0% 12%;
+    --popover-foreground: 28 38% 90%;
+ 
+    --primary: 28 38% 40%; /* Darker, earthier primary */
+    --primary-foreground: 28 38% 90%; /* Lighter text on primary */
+ 
+    --secondary: 28 38% 60%; /* Muted and natural secondary color */
+    --secondary-foreground: 28 38% 90%; /* Light secondary text */
+ 
+    --muted: 28 38% 60%; /* Muted tone for dark mode */
+    --muted-foreground: 215 20.2% 65.1%; /* Lighter muted foreground */
+ 
+    --accent: 28 38% 60%; /* Natural accent color */
+    --accent-foreground: 28 38% 90%; /* Lighter accent text */
+ 
+    --border: 0 0% 40%; /* Darker border for better contrast */
+    --input: 0 0% 40%; /* Darker input fields */
+    --ring: 28 38% 60%; /* Slightly brighter ring */
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.theme-wrapper {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Optional: Smooth background gradient transition */
+.bg-gradient-transition {
+  transition: background-image 0.2s ease-in-out;
 }
