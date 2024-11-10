@@ -19,12 +19,9 @@ export async function GET(request: Request) {
       'Transfer-Encoding': 'chunked'
     });
 
-    const agent = ytdl.createAgent(JSON.parse(fs.readFileSync("cookies.json", "utf8")));
-
     const stream = ytdl(url, {
       format: format,
       quality: 'highest',
-      agent
     });
 
     return new Response(stream as any, {
